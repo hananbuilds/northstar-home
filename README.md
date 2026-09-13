@@ -8,8 +8,8 @@ Fictional portfolio project, built to demonstrate an end-to-end data-to-dashboar
 
 ## Screenshots
 
-![Desktop overview](screenshots/desktop-overview.png)
-![Mobile view](screenshots/mobile-view.png)
+![Desktop overview](desktop-overview.png)
+![Mobile view](mobile-view.png)
 
 ## Overview
 
