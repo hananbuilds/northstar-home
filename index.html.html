@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northstar Home — Executive Dashboard | VELYNT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="rail-scrim" id="railScrim"></div>
+<div class="app">
+  <aside class="rail" id="rail">
+    <div class="brand">
+      <div class="brand-mark">N</div>
+      <div class="brand-text">
+        <span class="co">Northstar Home</span>
+        <span class="agency">VELYNT</span>
+      </div>
+    </div>
+    <nav class="nav" id="navList"></nav>
+    <div class="rail-foot">
+      <div class="data-status" id="dataStatus" title="Data is fetched live from the connected Google Sheet."><span class="status-dot" id="statusDot"></span> <span id="statusText">Connecting to Google Sheets…</span></div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex; align-items:flex-start; gap:10px;">
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <div>
+          <h1 id="pageTitle">Overview</h1>
+          <div class="sub" id="pageSub">Executive dashboard summary of Northstar Home performance</div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="notifBtn" aria-label="Notifications">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          <span class="dot-badge"></span>
+        </button>
+        <button class="btn" id="refreshBtn" title="Re-fetch the latest data from Google Sheets">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="refreshIcon"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 105.6 5.6L1 10m22 4l-4.6 4.4A9 9 0 013.51 15"/></svg>
+          <span>Refresh Data</span>
+        </button>
+        <button class="btn" id="shareBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 3.9M15.4 6.6L8.6 10.5"/></svg>
+          <span>Share</span>
+        </button>
+        <button class="btn btn-primary" id="exportBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+          <span>Export</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="filterbar" id="filterBar">
+      <span class="label">Filters</span>
+      <div class="date-range-group">
+        <input type="date" class="date-input" id="dateStart">
+        <span>–</span>
+        <input type="date" class="date-input" id="dateEnd">
+      </div>
+      <select id="fCountry"></select>
+      <select id="fChannel"></select>
+      <select id="fCategory"></select>
+      <button class="filter-reset" id="resetBtn">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 105.6 5.6L1 10m22 4l-4.6 4.4A9 9 0 013.51 15"/></svg>
+        Reset filters
+      </button>
+    </div>
+
+    <div class="load-state" id="loadState">
+      <div class="load-spinner"></div>
+      <div class="load-text">Loading Northstar Home data from Google Sheets…</div>
+    </div>
+    <div class="error-state js-hidden" id="errorState">
+      <div class="error-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
+      <div class="error-title">Couldn't load data from Google Sheets</div>
+      <div class="error-detail" id="errorDetail"></div>
+      <button class="btn btn-primary" id="retryBtn">Try again</button>
+    </div>
+
+    <!-- PAGES -->
+    <div class="page active" id="page-overview"></div>
+    <div class="page" id="page-sales"></div>
+    <div class="page" id="page-products"></div>
+    <div class="page" id="page-customers"></div>
+    <div class="page" id="page-marketing"></div>
+    <div class="page" id="page-returns"></div>
+
+    <footer class="dash-foot">
+      <span>Northstar Home Executive Dashboard — built by VELYNT · Clarity From Every Cell</span>
+      <span id="footRange"></span>
+    </footer>
+  </div>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
